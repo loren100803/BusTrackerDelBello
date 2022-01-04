@@ -33,5 +33,15 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>rimuoviCorsa</servlet-name>
+        <servlet-class>delbello.rimuoviCorsa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rimuoviCorsa</servlet-name>
+        <url-pattern>/rimuoviCorsa</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>

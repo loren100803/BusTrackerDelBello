@@ -12,7 +12,7 @@ public class aggiungiCorsa extends HttpServlet
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
     {
        Connection connection=null;
-       HttpSession session = req.getSession(true);
+       //HttpSession session = req.getSession(true);
        PrintWriter printwriter = res.getWriter();
        res.setContentType("text/html");
 

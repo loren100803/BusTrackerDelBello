@@ -25,13 +25,13 @@ public class login extends HttpServlet
        try 
        {
            connection = DriverManager.getConnection("jdbc:ucanaccess://" + req.getServletContext().getRealPath("/") + "BusPositionDB.accdb");
-           printwriter.println("tutto ok");
+           //printwriter.println("tutto ok");
            
            String username=req.getParameter("username");
-            printwriter.println(username);
+            //printwriter.println(username);
             
            String password=req.getParameter("password");
-            printwriter.println(password);
+            //printwriter.println(password);
             
            String query = "SELECT username, tipo FROM Utenti WHERE username= '"+ username +"' AND password= '"+ password +"'";
            Statement statement = connection.createStatement();
@@ -45,12 +45,13 @@ public class login extends HttpServlet
            }
            if(risultato==null)
            {
-             printwriter.println("Username o Password errati");
+             printwriter.println("<p align='center'>Errore di login, credenziali errate</p> <br> <p>Torna alla schermata di <a href='index.html'>login</a></p>");
+           
            }
            else
                 {
                     
-                    printwriter.println("Benvenuto"+risultato);
+                    //printwriter.println("Benvenuto"+risultato);
                     session.setAttribute("nome",username);
                     if(tipo.equals("admin"))
                         res.sendRedirect(req.getContextPath()+"/AdminPage.html");  //RICORDA DI CAMBIARE!!!

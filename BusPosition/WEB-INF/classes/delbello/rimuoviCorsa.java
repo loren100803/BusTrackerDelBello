@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import java.sql.*;
 
 
-public class register extends HttpServlet
+public class rimuoviCorsa extends HttpServlet
 {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
     {
@@ -27,20 +27,14 @@ public class register extends HttpServlet
            connection = DriverManager.getConnection("jdbc:ucanaccess://" + req.getServletContext().getRealPath("/") + "BusPositionDB.accdb");
            //printwriter.println("tutto ok");
            
-           String username=req.getParameter("username");
-            //printwriter.println(username);
+           String codice=req.getParameter("codice");
+           
             
-           String password=req.getParameter("password");
-            //printwriter.println(password);
-            
-           String mail=req.getParameter("mail");
-            //printwriter.println(mail);
-            
-           String query = "INSERT INTO Utenti VALUES('"+ username +"' , '"+ password +"' , '"+ mail +"', 'utente');";
+           String query = "DELETE FROM Corsa WHERE codice='"+codice+"';";
            Statement statement = connection.createStatement();
            statement.executeUpdate(query);
            
-           printwriter.println("<p align='center'>Registrazione effettuata!</p> <br> <p>Torna alla schermata di <a href='index.html'>login</a></p>");
+           printwriter.println("<p align='center'>Corsa rimossa!</p> <br> <p>Torna alla schermata di <a href='AdminPage.html'>amministrazione</a></p>");
            
            
        } catch (Exception e) {
@@ -62,5 +56,3 @@ public class register extends HttpServlet
        }
     }
 }
-
-
