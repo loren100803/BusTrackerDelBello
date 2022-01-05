@@ -43,5 +43,25 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>scegliLinea</servlet-name>
+        <servlet-class>delbello.scegliLinea</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>scegliLinea</servlet-name>
+        <url-pattern>/scegliLinea</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>visualizzaLinea</servlet-name>
+        <servlet-class>delbello.visualizzaLinea</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>visualizzaLinea</servlet-name>
+        <url-pattern>/visualizzaLinea</url-pattern>
+    </servlet-mapping>
+
+
 
 </web-app>
