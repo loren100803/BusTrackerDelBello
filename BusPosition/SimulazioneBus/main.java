@@ -21,10 +21,10 @@ public class main extends HttpServlet
         }
        try 
        {
-           connection = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/loren/Downloads/apache-tomcat-8.5.72/webapps/BusPosition/BusPositionDB.accdb");
+           connection = DriverManager.getConnection("jdbc:ucanaccess://C:/java/apache-tomcat-8.5.72/webapps/BusPosition/BusPositionDB.accdb"); //sistemare per trovare sempre il DB
            System.out.println("tutto ok");
            
-            
+           //C:\java\apache-tomcat-8.5.72\webapps\BusPosition 
            String query = "SELECT codice, linea, partenza, bus FROM Corsa";
            Statement statement = connection.createStatement();
            ResultSet resultSet = statement.executeQuery(query);
@@ -39,7 +39,8 @@ public class main extends HttpServlet
                 partenza=resultSet.getString(3);
                 bus=resultSet.getString(4);
                 
-                //metti il thread
+                Corsa corsa=new Corsa(codice, linea, partenza, bus);
+                corsa.start();
            }
            
        } catch (Exception e) {
