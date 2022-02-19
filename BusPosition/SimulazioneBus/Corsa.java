@@ -37,7 +37,7 @@ class Corsa extends Thread{
            
            
            
-           connection = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/loren/Downloads/apache-tomcat-8.5.72/webapps/BusPosition/BusPositionDB.accdb"); //sistemare per trovare sempre il DB
+           connection = DriverManager.getConnection("jdbc:ucanaccess://../BusPositionDB.accdb"); //sistemare per trovare sempre il DB
            System.out.println("tutto ok "+numeroThread);
            
            //C:\java\apache-tomcat-8.5.72\webapps\BusPosition 
@@ -68,7 +68,7 @@ class Corsa extends Thread{
            while(true)
            {
                 
-		String ora=formato.format(new Date());
+                String ora=formato.format(new Date());
                 if(ora.equals(partenza))
                 {
                     for(int fermata=0; fermata<numero_fermate; fermata++)
@@ -82,6 +82,7 @@ class Corsa extends Thread{
                
                          }
                 }
+                TimeUnit.SECONDS.sleep(10);  //si ferma ogni 10 secondi per evitare un sovraccarico della CPU
            }
            
            
