@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Corsa
+comment1.params=codice\ linea\ partenza\ bus\ numeroThread
+comment1.target=Corsa(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=void\ run()
+numComments=3
