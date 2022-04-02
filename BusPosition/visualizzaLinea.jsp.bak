@@ -46,58 +46,58 @@
 		   
 		try {   
 			FileWriter myWriter = new FileWriter(request.getServletContext().getRealPath("/") +"infoLinea.txt", false);	
-			BufferedWriter bf = new BufferedWriter(myWriter);	
+			BufferedWriter buffer = new BufferedWriter(myWriter);	
            
 		   //usa il bufferedWriter
 		   
            //out.println("<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th>");
-		  bf.write("<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th>");
+		  out.write("<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th>");
            while(resultSet.next())
            {
            		int fermata=rnd.nextInt(11);
            		
                 //out.println("<tr>");
 				
-				bf.write("<tr>");
+				out.write("<tr>");
                 
 				//out.println("<td>"+resultSet.getString(1)+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(1)+"</td>");
+						out.write("<td>"+resultSet.getString(1)+"</td>");
 					
                 	//out.println("<td>"+resultSet.getString(2)+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(2)+"</td>");
+						out.write("<td>"+resultSet.getString(2)+"</td>");
 					
                 	//out.println("<td>"+resultSet.getString(3)+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(3)+"</td>");
+						out.write("<td>"+resultSet.getString(3)+"</td>");
 					
                 	//out.println("<td>"+resultSet.getString(4)+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(4)+"</td>");
+						out.write("<td>"+resultSet.getString(4)+"</td>");
                 	
                 	if(fermata==0)
                 	{
                 		//out.println("<td>Non ancora partito</td>");
-							bf.write("<td>Non ancora partito</td>");
+							out.write("<td>Non ancora partito</td>");
                 	}
                 		else if(fermata==10)
                 		{
                 			//out.println("<td>Capolinea</td>");
-							bf.write("<td>Capolinea</td>");
+							out.write("<td>Capolinea</td>");
                 		}
                 		else
                 			//out.println("<td>"+fermata+"</td>");
-							bf.write("<td>"+fermata+"</td>");
+							out.write("<td>"+fermata+"</td>");
 
                 //out.println("</tr>");
-				bf.write("</tr>");
+				out.write("</tr>");
            }
             //out.println("</table>");
-			bf.write("</table>");
+			out.write("</table>");
 			
-			bf.flush();
-			bf.close();
+			out.flush();
+			out.close();
 			
 			
 			System.out.println("Successfully wrote to the file.");
