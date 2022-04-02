@@ -1,1 +1,1 @@
-<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th><tr><td>0001</td><td>1 andata</td><td>06:00</td><td>1111</td><td>9</td></tr></table>
+<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th><tr><td>0001</td><td>1 andata</td><td>06:00</td><td>1111</td><td>3</td></tr></table>
