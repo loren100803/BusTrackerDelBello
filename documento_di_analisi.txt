@@ -1,0 +1,66 @@
+login esegue il login di un utente
+endpoint: /login POST
+input: 
+	String username
+	String password
+output: 
+	if(utente==user)
+		AdminPage
+	
+	if(utente==admin)
+		ScegliLinea
+
+
+
+register registra un utente
+endpoint: /register POST
+input:
+	String username
+	String password
+	String mail
+
+output:
+	printwriter.println("<p align='center'>Registrazione effettuata!</p> <br> <p>Torna alla schermata di <a href='index.html'>login</a></p>");
+
+
+aggiungiCorsa aggiungi corsa inserendo il proprio codice, linea, partenza e bus
+endpoint: /aggiungiCorsa 
+input:
+	String codice
+	String linea
+	String partenza
+	String bus
+outpt:
+	printwriter.println("<p align='center'>Corsa aggiunta!</p> <br> <p>Torna alla schermata di <a href='AdminPage.html'>amministrazione</a></p>");
+
+
+rimuoviCorsa: rimuovi corsa inserendo il codice identificativo
+endpoint: /rimuoviCorsa
+input:
+	String codice
+	
+outpt:
+	printwriter.println("<p align='center'>Corsa rimossa!</p> <br> <p>Torna alla schermata di <a href='AdminPage.html'>amministrazione</a></p>");
+
+
+
+
+scegliLinea da un menù a tendina, è possibile scegliere la linea da visualizzare 
+endpoint: /scegliLinea
+input:
+	String linea (dal DB)
+	
+outpt:
+	menu scelta
+
+
+visualizzaLinea mostra tutte le corse e le fermate antecedenti all'ora attuale.
+endpoint: /visualizzaLinea.jsp
+input:
+	String codice, linea, partenza, bus (dal DB)
+	
+outpt:
+	tabella fermate
+
+
+
