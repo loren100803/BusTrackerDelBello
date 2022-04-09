@@ -1,4 +1,19 @@
 <html>
+	
+	<script>
+	function loadDoc() {
+	const xhttp = new XMLHttpRequest();
+	xhttp.onload = function() {
+		document.getElementById("demo").innerHTML = this.responseText;
+	}
+	xhttp.open("GET", "infoLinea.txt");
+	xhttp.send();
+}
+
+
+
+</script>
+	
 	<head>
 		<title>visualizza Linea</title>
 	</head>
@@ -12,6 +27,9 @@
 		<%@ page import="java.util.Date"%>
 		<%@ page import="java.util.Random"%>
 		<%@ page import="java.io.FileWriter"%>
+		<%@ page import="java.util.concurrent.TimeUnit"%>
+		
+		
 
 		<h1>Autobus in transito: </h1>
 
@@ -20,7 +38,11 @@
 			String linea=request.getParameter("linea");
 			Random rnd=new Random();
 			SimpleDateFormat formato=new SimpleDateFormat("HH:mm");
-			String ora=formato.format(new Date());
+			String ora;
+			
+		
+	
+			ora=formato.format(new Date());
 			out.println(ora);
 
 	    try {
@@ -45,55 +67,51 @@
 
 		   
 		try {   
-			FileWriter myWriter = new FileWriter(request.getServletContext().getRealPath("/") +"infoLinea.txt", false);	
+			FileWriter myWriter = new FileWriter(request.getServletContext().getRealPath("/") +"tabLinea.txt", false);	
 			BufferedWriter bf = new BufferedWriter(myWriter);	
            
 		   //usa il bufferedWriter
 		   
-           //out.println("<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th>");
+           out.println("<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th>");
 		  bf.write("<table border=1><th>codice</th><th>linea</th><th>partenza</th><th>bus</th><th>fermata</th>");
            while(resultSet.next())
            {
-           		int fermata=rnd.nextInt(11);
+           		//int fermata=rnd.nextInt(11);
            		
-                //out.println("<tr>");
+                out.println("<tr>");
 				
 				bf.write("<tr>");
-                
-				//out.println("<td>"+resultSet.getString(1)+"</td>");
+				
+				String r1=resultSet.getString(1);
+				String r2=resultSet.getString(2);
+				String r3=resultSet.getString(3);
+				String r4=resultSet.getString(4);
+                int fermata= resultSet.getInt(5);
+				
+				out.println("<td>"+r1+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(1)+"</td>");
+						bf.write("<td>"+r1+"</td>");
 					
-                	//out.println("<td>"+resultSet.getString(2)+"</td>");
+                	out.println("<td>"+r2+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(2)+"</td>");
+						bf.write("<td>"+r2+"</td>");
 					
-                	//out.println("<td>"+resultSet.getString(3)+"</td>");
+                	out.println("<td>"+r3+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(3)+"</td>");
+						bf.write("<td>"+r3+"</td>");
 					
-                	//out.println("<td>"+resultSet.getString(4)+"</td>");
+                	out.println("<td>"+r4+"</td>");
 					
-						bf.write("<td>"+resultSet.getString(4)+"</td>");
+						bf.write("<td>"+r4+"</td>");
                 	
-                	if(fermata==0)
-                	{
-                		//out.println("<td>Non ancora partito</td>");
-							bf.write("<td>Non ancora partito</td>");
-                	}
-                		else if(fermata==10)
-                		{
-                			//out.println("<td>Capolinea</td>");
-							bf.write("<td>Capolinea</td>");
-                		}
-                		else
-                			//out.println("<td>"+fermata+"</td>");
-							bf.write("<td>"+fermata+"</td>");
+                	out.println("<td>"+fermata+"</td>");
+					
+						bf.write("<td>"+fermata+"</td>");
 
-                //out.println("</tr>");
+                out.println("</tr>");
 				bf.write("</tr>");
            }
-            //out.println("</table>");
+            out.println("</table>");
 			bf.write("</table>");
 			
 			bf.flush();
@@ -124,6 +142,12 @@
                }
            }
        }
+	   
+	   
+	   TimeUnit.SECONDS.sleep(3);
+	   
+	   
+	//chiusura while(true)
 
 		%>
 	</body>

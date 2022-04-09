@@ -12,7 +12,7 @@ public class login extends HttpServlet
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
     {
        Connection connection=null;
-       HttpSession session = req.getSession(true);
+       HttpSession session = req.getSession();
        PrintWriter printwriter = res.getWriter();
        RequestDispatcher rd = req.getRequestDispatcher("scegliLinea");
        res.setContentType("text/html");
@@ -54,7 +54,7 @@ public class login extends HttpServlet
                     //printwriter.println("Benvenuto"+risultato);
                     session.setAttribute("nome",username);
                     if(tipo.equals("admin"))
-                        res.sendRedirect(req.getContextPath()+"/AdminPage.html");  
+                        res.sendRedirect(req.getContextPath()+"/AdminPage.jsp");  
                         else
                             rd.forward(req,res); 
                     

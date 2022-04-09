@@ -12,11 +12,12 @@ public class aggiungiCorsa extends HttpServlet
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
     {
        Connection connection=null;
-       //HttpSession session = req.getSession(true);
+       HttpSession session = req.getSession();
        PrintWriter printwriter = res.getWriter();
        res.setContentType("text/html");
 
-       
+       if(session.getAttribute("nome")==null)
+           res.sendRedirect(req.getContextPath()+"/");
        try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
         } catch (ClassNotFoundException e) {
