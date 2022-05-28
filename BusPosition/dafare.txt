@@ -1,5 +1,0 @@
-cambiare codice redirect in ScegliLinea.jsp
-
-mettere sessioni
-
-cambiare tutti i riferimenti ai file html
