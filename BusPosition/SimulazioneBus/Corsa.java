@@ -82,7 +82,7 @@ class Corsa extends Thread{
                
                          }
                 }
-                TimeUnit.SECONDS.sleep(10);  //si ferma ogni 10 secondi per evitare un sovraccarico della CPU
+                TimeUnit.SECONDS.sleep(10);  //si ferma ogni 10 secondi
            }
            
            

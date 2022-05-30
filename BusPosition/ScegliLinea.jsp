@@ -3,7 +3,7 @@
     <title>Scegli Linea</title>
   </head>
 
-  <body>
+  <body style="background-color:#e5fcde;">
 	<h1>SCEGLI LINEA</h1>
 	<%@page import="java.io.*" %>
 	<%@page import="java.util.*" %>

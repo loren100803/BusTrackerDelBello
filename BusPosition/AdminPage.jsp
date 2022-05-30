@@ -3,7 +3,7 @@
   <head>
     <title>Admin Page</title>
   </head>
-  <body>
+  <body style="background-color:#e5fcde;">
 		<%@ page import="java.io.*"%>
 		<%@ page import="java.util.*"%>
 		<%@ page import="javax.servlet.*"%>

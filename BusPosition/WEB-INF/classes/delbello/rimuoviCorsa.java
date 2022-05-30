@@ -34,7 +34,7 @@ public class rimuoviCorsa extends HttpServlet
            Statement statement = connection.createStatement();
            statement.executeUpdate(query);
            
-           printwriter.println("<p align='center'>Corsa rimossa!</p> <br> <p>Torna alla schermata di <a href='AdminPage.html'>amministrazione</a></p>");
+           printwriter.println("<p align='center'>Corsa rimossa!</p> <br> <p>Torna alla schermata di <a href='AdminPage.jsp'>amministrazione</a></p>");
            
            
        } catch (Exception e) {

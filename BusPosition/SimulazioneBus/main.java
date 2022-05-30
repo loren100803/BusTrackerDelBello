@@ -21,7 +21,7 @@ public class main extends HttpServlet
         }
        try 
        {
-           connection = DriverManager.getConnection("jdbc:ucanaccess://../BusPositionDB.accdb"); //sistemare per trovare sempre il DB
+           connection = DriverManager.getConnection("jdbc:ucanaccess://../BusPositionDB.accdb"); 
            System.out.println("tutto ok");
            //C:/Users/loren/Downloads/apache-tomcat-8.5.72/webapps/BusPosition/BusPositionDB.accdb
            //C:\java\apache-tomcat-8.5.72\webapps\BusPosition 

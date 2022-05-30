@@ -1,6 +1,7 @@
 <html>
 	
 	<script>
+		//non utilizzato...
 	function loadDoc() {
 	const xhttp = new XMLHttpRequest();
 	xhttp.onload = function() {
@@ -14,10 +15,28 @@
 
 </script>
 	
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>	
 	<head>
 		<title>visualizza Linea</title>
 	</head>
-	<body>
+	<body style="background-color:#e5fcde;">
 		<%@ page import="java.io.*"%>
 		<%@ page import="java.util.*"%>
 		<%@ page import="javax.servlet.*"%>
@@ -36,14 +55,18 @@
 		<%
 
 			String linea=request.getParameter("linea");
+			
 			Random rnd=new Random();
+			
+
+
 			SimpleDateFormat formato=new SimpleDateFormat("HH:mm");
 			String ora;
 			
 		
 	
 			ora=formato.format(new Date());
-			out.println(ora);
+			out.println("Ultimo aggiornamento: "+ora);
 
 	    try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -148,8 +171,9 @@
 	   TimeUnit.SECONDS.sleep(3);
 	   
 	   
-	//chiusura while(true)
+	
 
 		%>
+		
 	</body>
 </html>
